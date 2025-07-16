@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Tweet Deletion Confirmation
+{% endblock %}
+
+{% block internal_css %}
+<style>
+    .btn {
+      padding: 8px 14px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .tweet-actions {
+      display: flex;
+      justify-content: space-between;
+    }
+    .btn.cancel{
+      background-color: #3409e1;
+    }
+    .caution{
+     color: #ecf0f1;
+    }
+  .btn.delete{
+   background-color: #dc3545;
+  }
+  .tweet{
+   color: #f4f6f7
+  }
+
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<main class="post-container">
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <h3>Tweet: </h3>
+    <p class="tweet"><strong> {{tweet.text}}</strong></p>
+    <br>
+    {%if tweet.photo %}
+    <h3>IMAGE</h3>
+    <img src="{{ tweet.photo.url }}" alt="Tweet Image" width="200px">
+    {% endif %}
+    <div class="tweet-actions">
+    <p class="caution"><strong>Are You Sure You want to delete this tweet??</strong> </p>
+    </div>
+    <br>
+    <br>
+    <button type="submit" class="btn delete">Delete Tweet</button>
+    <a href="{% url 'index' %}" class="btn cancel">Cancel Delete </a>
+  </form>
+
+</main>
+
+{% endblock %}

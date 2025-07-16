@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block internal_css %}
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+    .container {
+        background-color: var(--card-background);
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        max-width: 500px;
+        width: 90%;
+        border: 1px solid var(--border-color);
+    }
+     .button {
+        display: inline-block;
+        background-color: #007bff;
+        color: #fff;
+        padding: 12px 25px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 1.1em;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+     }
+      .button:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+      }
+
+    .button:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
+    }
+
+    </style>
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="container">
+        <h1>Error 404</h1>
+        <h2>Page Not Found</h2>
+        <p>{{message}}</p>
+        <a href="{% url 'index' %}" class="button">Go to Homepage</a>
+    </div>
+
+{% endblock %}

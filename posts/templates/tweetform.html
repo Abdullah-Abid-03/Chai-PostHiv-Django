@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Create Tweet Form
+{% endblock %}
+
+{% block internal_css %}
+
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      padding: 40px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    textarea, input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+
+{% endblock %}
+
+{% block content %}
+
+<h2>Submit Text and Photo</h2>
+
+  <form action="{% url 'savetweet' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="text">Write description:</label><br>
+    <textarea id="text" name="tweet" rows="4" cols="50" placeholder="Type your tweet here..."></textarea><br><br>
+
+    <label for="photo">Upload a photo:</label><br>
+    <input type="file" id="photo" name="photo" accept="image/*"><br><br>
+
+    <button type="submit">Save</button>
+  </form>
+
+{% endblock %}
