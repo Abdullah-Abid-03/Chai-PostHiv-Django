@@ -30,7 +30,6 @@ urlpatterns = [  # at project level
     path('', include('posts.urls')),  # this will now catch all the app-level paths correctly.
     # That’s it. One line to include everything from posts/urls.py.
     # That tell Django that doesn’t match admin/, look into posts.urls and see if it matches something there
-    path('tinymce/', include('tinymce.urls')),
 ]
 # serves during development
 if settings.DEBUG == True:
