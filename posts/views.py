@@ -141,7 +141,4 @@ def custom_500_view(request):
     return render(request, "500.html", context, status=500)
 
 
-def picture(request, pic_id):
-    pic = Tweets.objects.get(id=pic_id)
-    return render(request, "index.html", {'pic': pic})
 
