@@ -3,6 +3,7 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [ # at app level
+    path('', views.homepage, name='home'),
     path('index/', views.homepage, name='index'),
     path('createtweet/', views.create_tweet, name='create_tweet'),
     path('savetweet/', views.savetweet, name='savetweet'),
