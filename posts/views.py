@@ -141,4 +141,14 @@ def custom_500_view(request):
     return render(request, "500.html", context, status=500)
 
 
-
+# Add this at the bottom of your views.py
+@login_required
+def picture(request, pic_id):
+    # Fetch the tweet that contains the picture using the pic_id from the URL
+    tweet = get_object_or_404(Tweets, id=pic_id)
+    
+    context = {
+        'tweet': tweet
+    }
+    # This assumes you have or will create a 'picture_view.html' template
+    return render(request, 'picture_view.html', context)
