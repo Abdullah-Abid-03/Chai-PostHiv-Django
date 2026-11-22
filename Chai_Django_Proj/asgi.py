@@ -7,6 +7,7 @@ For more information on this file, see
 https://docs.djangoproject.com/en/5.1/howto/deployment/asgi/
 """
 
+import utils.transport
 import utils.session
 import os
 
